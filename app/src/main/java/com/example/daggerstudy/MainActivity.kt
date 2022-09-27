@@ -24,10 +24,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var user: User
 
     @Inject
-    lateinit var databaseObject: DatabaseObject
+    lateinit var databaseObject1: DatabaseObject
+
+    @Inject
+    lateinit var databaseObject2: DatabaseObject
 
     @Inject
     lateinit var httpObject: HttpObject
+
+    @Inject
+    lateinit var httpObject2: HttpObject
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -39,8 +45,10 @@ class MainActivity : AppCompatActivity() {
         DaggerApplicationComponent.builder().build().inject(this)
         setContentView(binding.root)
         Log.i("MainActivity", "  MainActivityGT $user")
-        Log.i("MainActivity", "  MainActivityGT $databaseObject")
+        Log.i("MainActivity", "  MainActivityGT $databaseObject1")
+        Log.i("MainActivity", "  MainActivityGT $databaseObject2")
         Log.i("MainActivity", "  MainActivityGT $httpObject")
+        Log.i("MainActivity", "  MainActivityGT $httpObject2")
 
         setSupportActionBar(binding.toolbar)
 

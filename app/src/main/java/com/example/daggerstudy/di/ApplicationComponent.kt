@@ -5,7 +5,9 @@ import com.example.daggerstudy.modules.DatabaseModule
 import com.example.daggerstudy.modules.DatabaseObject
 import com.example.daggerstudy.modules.HttpModule
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [DatabaseModule::class, HttpModule::class])
 interface ApplicationComponent {
 
