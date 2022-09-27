@@ -1,6 +1,8 @@
 package com.example.daggerstudy.di
 
+import com.example.daggerstudy.FirstFragment
 import com.example.daggerstudy.MainActivity
+import com.example.daggerstudy.SecondFragment
 import com.example.daggerstudy.modules.DatabaseModule
 import com.example.daggerstudy.modules.DatabaseObject
 import com.example.daggerstudy.modules.HttpModule
@@ -12,5 +14,9 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(activity: MainActivity)
+
+    fun inject(fragment: FirstFragment)
+
+    fun inject(fragment: SecondFragment)
 
 }

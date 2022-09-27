@@ -10,30 +10,13 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import com.example.daggerstudy.beans.User
 import com.example.daggerstudy.databinding.ActivityMainBinding
 import com.example.daggerstudy.di.DaggerApplicationComponent
-import com.example.daggerstudy.modules.DatabaseObject
-import com.example.daggerstudy.modules.HttpObject
-import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var user: User
 
-    @Inject
-    lateinit var databaseObject1: DatabaseObject
-
-    @Inject
-    lateinit var databaseObject2: DatabaseObject
-
-    @Inject
-    lateinit var httpObject: HttpObject
-
-    @Inject
-    lateinit var httpObject2: HttpObject
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -44,11 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         DaggerApplicationComponent.builder().build().inject(this)
         setContentView(binding.root)
-        Log.i("MainActivity", "  MainActivityGT $user")
-        Log.i("MainActivity", "  MainActivityGT $databaseObject1")
-        Log.i("MainActivity", "  MainActivityGT $databaseObject2")
-        Log.i("MainActivity", "  MainActivityGT $httpObject")
-        Log.i("MainActivity", "  MainActivityGT $httpObject2")
+
 
         setSupportActionBar(binding.toolbar)
 

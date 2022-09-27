@@ -12,4 +12,8 @@ class HttpModule {
     fun provideHttpObject(): HttpObject = HttpObject()
 
 
+    @Provides
+    fun provideProvisioningManager(): ProvisioningManager = ProvisioningManager()
+
+
 }
