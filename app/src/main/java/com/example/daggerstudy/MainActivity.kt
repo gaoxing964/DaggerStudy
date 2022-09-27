@@ -13,13 +13,21 @@ import android.view.MenuItem
 import com.example.daggerstudy.beans.User
 import com.example.daggerstudy.databinding.ActivityMainBinding
 import com.example.daggerstudy.di.DaggerApplicationComponent
+import com.example.daggerstudy.modules.DatabaseObject
+import com.example.daggerstudy.modules.HttpObject
 import javax.inject.Inject
+
 
 class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var user: User
 
+    @Inject
+    lateinit var databaseObject: DatabaseObject
+
+    @Inject
+    lateinit var httpObject: HttpObject
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -31,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         DaggerApplicationComponent.builder().build().inject(this)
         setContentView(binding.root)
         Log.i("MainActivity", "  MainActivityGT $user")
+        Log.i("MainActivity", "  MainActivityGT $databaseObject")
+        Log.i("MainActivity", "  MainActivityGT $httpObject")
 
         setSupportActionBar(binding.toolbar)
 
