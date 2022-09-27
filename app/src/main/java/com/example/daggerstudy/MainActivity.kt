@@ -1,6 +1,7 @@
 package com.example.daggerstudy
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,9 +10,16 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.example.daggerstudy.beans.User
 import com.example.daggerstudy.databinding.ActivityMainBinding
+import com.example.daggerstudy.di.DaggerApplicationComponent
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var user: User
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        DaggerApplicationComponent.builder().build().inject(this)
         setContentView(binding.root)
+        Log.i("MainActivity", "  MainActivityGT $user")
 
         setSupportActionBar(binding.toolbar)
 

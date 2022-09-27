@@ -1,5 +1,10 @@
 package com.example.daggerstudy.beans
 
-class User {
+import javax.inject.Inject
+
+
+class User@Inject() constructor() {
+
+
 
 }

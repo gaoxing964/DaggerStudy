@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.daggerstudy.databinding.FragmentSecondBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -33,6 +34,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
+            Timber.i(" binding.buttonSecond.setOnClickListener")
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }

@@ -1,6 +1,14 @@
 package com.example.daggerstudy.di
 
-@Component
+import com.example.daggerstudy.MainActivity
+import com.example.daggerstudy.modules.DatabaseModule
+import com.example.daggerstudy.modules.DatabaseObject
+import com.example.daggerstudy.modules.HttpModule
+import dagger.Component
+
+@Component(modules = [DatabaseModule::class, HttpModule::class])
 interface ApplicationComponent {
+
+    fun inject(activity: MainActivity)
 
 }
