@@ -66,7 +66,7 @@ class SecondFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
 
-        DaggerApplicationComponent.create().inject(this)
+        (this.activity?.application as MyApplication?)?.daggerApplicationComponent?.inject(this)
 
         Log.i("MainActivity", "  MainActivityGT $user")
         Log.i("MainActivity", "  MainActivityGT $databaseObject1")
