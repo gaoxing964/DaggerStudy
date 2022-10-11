@@ -13,6 +13,7 @@ import com.example.daggerstudy.di.DaggerApplicationComponent
 import com.example.daggerstudy.modules.DatabaseObject
 import com.example.daggerstudy.modules.HttpObject
 import com.example.daggerstudy.modules.ProvisioningManager
+import com.example.daggerstudy.modules.SecurityObject
 import javax.inject.Inject
 
 /**
@@ -41,6 +42,12 @@ class FirstFragment : Fragment() {
     @Inject
     lateinit var provisioningManager2: ProvisioningManager
 
+    @Inject
+    lateinit var securityObject: SecurityObject
+
+    @Inject
+    lateinit var securityObject2: SecurityObject
+
     private var _binding: FragmentFirstBinding? = null
 
     // This property is only valid between onCreateView and
@@ -60,11 +67,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
 
         (this.activity?.application as MyApplication?)?.daggerApplicationComponent?.inject(this)
+        context
 
         Log.i("MainActivity", "  MainActivityGT $user")
         Log.i("MainActivity", "  MainActivityGT $databaseObject1")
@@ -74,6 +79,9 @@ class FirstFragment : Fragment() {
 
         Log.i("MainActivity", "  MainActivityGT $provisioningManager")
         Log.i("MainActivity", "  MainActivityGT $provisioningManager2")
+
+        Log.i("MainActivity", "  MainActivityGT $securityObject")
+        Log.i("MainActivity", "  MainActivityGT $securityObject2")
     }
 
     override fun onDestroyView() {

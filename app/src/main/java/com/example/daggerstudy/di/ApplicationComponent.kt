@@ -9,8 +9,8 @@ import com.example.daggerstudy.modules.HttpModule
 import dagger.Component
 import javax.inject.Singleton
 
-@Singleton
-@Component(modules = [DatabaseModule::class, HttpModule::class])
+@ApplicationScope
+@Component(modules = [DatabaseModule::class, HttpModule::class], dependencies = [SecurityComponent::class])
 interface ApplicationComponent {
 
     fun inject(activity: MainActivity)

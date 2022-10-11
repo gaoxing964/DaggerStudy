@@ -1,5 +1,6 @@
 package com.example.daggerstudy.modules
 
+import com.example.daggerstudy.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -7,7 +8,7 @@ import javax.inject.Singleton
 @Module
 class HttpModule {
 
-    @Singleton
+    @ApplicationScope
     @Provides
     fun provideHttpObject(): HttpObject = HttpObject()
 

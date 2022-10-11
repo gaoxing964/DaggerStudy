@@ -1,4 +1,4 @@
-package com.example.daggerstudy
+package com.example.hiltexample
 
 import android.os.Bundle
 import android.util.Log
@@ -10,14 +10,19 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import com.example.daggerstudy.databinding.ActivityMainBinding
-import com.example.daggerstudy.di.DaggerApplicationComponent
-import com.example.daggerstudy.di.DaggerSecurityComponent
+import com.example.hiltexample.databinding.ActivityMainBinding
+import com.example.hiltexample.obj.HttpResponseObject
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    @Inject
+    lateinit var httpResponseObject: HttpResponseObject
 
+    @Inject
+    lateinit var httpResponseObject2: HttpResponseObject
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -27,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         setSupportActionBar(binding.toolbar)
 
@@ -39,6 +43,8 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+        Log.i("MainActivityGT", "$httpResponseObject")
+        Log.i("MainActivityGT", "$httpResponseObject2")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
