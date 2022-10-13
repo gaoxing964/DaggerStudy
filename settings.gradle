@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 rootProject.name = "DaggerStudy"
 include ':app'
 include ':hiltexample'
+include ':shapestudy'
