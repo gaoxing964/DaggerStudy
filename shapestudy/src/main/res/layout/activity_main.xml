@@ -21,19 +21,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSelectorId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/shapeContainer" />
 
     <Button
+        android:id="@+id/buttonSelectorId"
         android:layout_width="match_parent"
         android:text="selectorButton"
         android:background="@drawable/button_selector"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/checkboxId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textInfo"
         android:layout_height="wrap_content"/>
+
+    <CheckBox
+        android:id="@+id/checkboxId"
+        android:text="I am a checkbox"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="@id/editTextInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/buttonSelectorId"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editTextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="datetime"
+        android:maxLength="11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/checkboxId"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
