@@ -88,12 +88,16 @@ class listActivity : AppCompatActivity() {
                             findViewById<ImageView>(R.id.imageHeader).setImageResource(
                                 listDataForSimpleAdapter[position]["image"] as Int
                             )
-                            findViewById<TextView>(R.id.textTailer)?.text = listDataForSimpleAdapter[position]["name"] as String
+                            findViewById<TextView>(R.id.textTailer).text = listDataForSimpleAdapter[position]["name"] as String
 
                         }
                 }
 
             }
+        }
+
+        findViewById<Spinner>(R.id.spinnerIdConvertView).apply {
+            adapter = ResultAdapter(listDataForSimpleAdapter, this@listActivity)
         }
 
 
