@@ -2,11 +2,10 @@ package com.example.liststudy
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.SimpleAdapter
-import android.widget.Spinner
+import android.view.ViewGroup
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 val listData = listOf("金星", "水星", "木星", "祸心")
@@ -67,6 +66,34 @@ class listActivity : AppCompatActivity() {
                 this@listActivity, listDataForSimpleAdapter, R.layout.spinner_simple_adapter,
                 arrayOf("name", "image"), intArrayOf(R.id.textTailer, R.id.imageHeader)
             )
+        }
+
+        findViewById<Spinner>(R.id.spinnerIdBaseAdapterId).apply {
+            adapter = object : BaseAdapter() {
+                override fun getCount(): Int {
+                  return   listDataForSimpleAdapter.count()
+                }
+
+                override fun getItem(position: Int): Any {
+                    return listDataForSimpleAdapter[position]
+                }
+
+                override fun getItemId(position: Int): Long {
+                    return position.toLong()
+                }
+
+                override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+                    return LayoutInflater.from(this@listActivity)
+                        .inflate(R.layout.spinner_simple_adapter, null).apply {
+                            findViewById<ImageView>(R.id.imageHeader).setImageResource(
+                                listDataForSimpleAdapter[position]["image"] as Int
+                            )
+                            findViewById<TextView>(R.id.textTailer)?.text = listDataForSimpleAdapter[position]["name"] as String
+
+                        }
+                }
+
+            }
         }
 
 
