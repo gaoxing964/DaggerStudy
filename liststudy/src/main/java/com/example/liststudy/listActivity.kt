@@ -17,6 +17,7 @@ val listDataForSimpleAdapter = listOf(
 )
 
 class listActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
@@ -99,7 +100,6 @@ class listActivity : AppCompatActivity() {
         findViewById<Spinner>(R.id.spinnerIdConvertView).apply {
             adapter = ResultAdapter(listDataForSimpleAdapter, this@listActivity)
         }
-
-
     }
+
 }
